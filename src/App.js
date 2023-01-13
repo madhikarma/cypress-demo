@@ -15,16 +15,21 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React with Sri
+          Learn React
         </a>
         <button onClick={showAlert} data-cy="show-alert-button">Show alert</button>
+        <button onClick={loadNewWebsite} data-cy="load-new-website-button">Load new website</button>
       </header>
     </div>
   );
 
   function showAlert() {
-    // alert("Hello world!")
-    window.open("https://www.yahoo.com", "_self")
+    alert("Hello world!")
+    
+  }
+
+  function loadNewWebsite() {
+    window.open("https://www.google.com", "_self")
   }
 }
 

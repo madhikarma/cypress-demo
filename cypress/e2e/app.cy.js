@@ -1,3 +1,5 @@
+import { hasSelectionSupport, wait } from "@testing-library/user-event/dist/utils"
+
 // Feature / Scenario 1 TODO think about how to organize
 describe('The App', () => {
     // Test 1
@@ -14,13 +16,6 @@ describe('The App', () => {
 
         // Find <p> label and assert the text
         cy.contains('Edit src/App.js and save to reload.')
-
-
-        
-
-        // When
-
-        // Then
     })
 
     // Test 3
@@ -30,7 +25,7 @@ describe('The App', () => {
 
         // Find <button> and assert the text
         cy.contains('button', 'Show alert')
-s
+
         // Find <button> and click it 
         // cy.get('button').click()
         // Use ids as below (see src/App.js to edit the id) 
@@ -52,15 +47,25 @@ s
         cy.get('[data-cy="show-alert-button"]').click()	
 
         // Assert alert popup
-        // cy.on('window:alert',(text)=>{
-        //     //Mocha assertions
-        //     expect(text).to.contains('Hello world');
-        // })
+        cy.on('window:alert',(text)=>{
+            //Mocha assertions
+            expect(text).to.contains('Hello world');
+        })  
+    })
 
-        var options = { timeout: 10 }
-        cy.url(options).should('include', '/yahoo.com') // => true
-    })        
-
-
-
+    // Test 5
+    it('load new website when button is clicked', () => {
+        // Load web page into browser i.e. launch web app
+        cy.visit('http://localhost:3000')
+        
+        // Find <button> and click it 
+        cy.get('[data-cy="load-new-website-button"]').click()	
+        
+        wait(10)
+        
+        // Assert 
+        cy.location().should((loc) => {
+            expect(loc.pathname).to.eq("https://www.google.com")
+        })
+    })
 })
