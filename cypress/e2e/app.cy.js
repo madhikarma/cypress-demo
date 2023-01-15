@@ -117,8 +117,34 @@ describe("The App", () => {
     // Assert alert popup
     cy.on("window:alert", (text) => {
       expect(text).to.contains("Login sent!");
-      expect(text).to.contains("Username:");
-      expect(text).to.contains("Password:");
+      expect(text).to.contains("Username:"); // Note. will be 'Username: undefined' until the app uses validation
+      expect(text).to.contains("Password:"); // Note. will be 'Password: undefined' until the app uses validation
+    });
+  });
+
+  // Test 10
+  it("show alert popup when username and password is entered and login form submit button is pressed", () => {
+    // Given
+    cy.visit("http://localhost:3000");
+    var username = "david.bowie@mail.com";
+    var password = "password";
+
+    // When
+    var usernameLabel = cy.get('[data-cy="login-form-username-label"]');
+    usernameLabel.type(username);
+
+    var passwordLabel = cy.get('[data-cy="login-form-password-label"]');
+    passwordLabel.type(password);
+
+    var submitButton = cy.get('[data-cy="login-form-submit-button"]');
+    submitButton.contains("Submit");
+    submitButton.click();
+
+    // Then
+    cy.on("window:alert", (text) => {
+      expect(text).to.contains("Login sent!");
+      expect(text).to.contains("Username: " + username);
+      expect(text).to.contains("Password: " + password);
     });
   });
 });
