@@ -104,3 +104,5 @@ https://docs.cypress.io/guides/end-to-end-testing/writing-your-first-end-to-end-
 https://docs.cypress.io/guides/references/best-practices
 
 https://blog.openreplay.com/implementing-your-first-end-to-end-tests-in-react-using-cypress/
+
+https://www.w3schools.com/html/html_forms.asp
