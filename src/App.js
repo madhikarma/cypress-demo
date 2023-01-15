@@ -27,6 +27,7 @@ class App extends React.Component {
   }
   
   handleSubmit() {
+    // Note. will be 'Username: undefined' and 'Password: undefined' until the app uses validation
     alert("Login sent!\nUsername: " + this.state.username + "\nPassword: " + this.state.password)
   }
 
@@ -68,11 +69,11 @@ class App extends React.Component {
           <button onClick={this.loadNewWebsite} data-cy="load-new-website-button">Load new website</button>
           <div>
             <form onSubmit={this.handleSubmit}>
-              <label htmlFor="username">Username:</label><br />
-              <input type="text" id="username" name="username" onChange={this.handleUsername}/><br />
-              <label htmlFor="password">Password:</label><br />
-              <input type="text" id="password" name="password" onChange={this.handlePassword} /><br />
-              <input type="submit" value="Submit"></input><br />
+              <label htmlFor="username" data-cy="login-form-username-label">Username:</label><br />
+              <input type="text" id="username" name="username" onChange={this.handleUsername} data-cy="login-form-username-textfield"/><br />
+              <label htmlFor="password" data-cy="login-form-password-label">Password:</label><br />
+              <input type="text" id="password" name="password" onChange={this.handlePassword} data-cy="login-form-password-textfield" /><br />
+              <input type="submit" value="Submit" data-cy="login-form-submit-button"></input><br />
             </form>
         </div>
         </header>
