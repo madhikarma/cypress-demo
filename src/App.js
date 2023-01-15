@@ -8,9 +8,12 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {value: ''};
+    
     // Bind javascript functions else use arrow function
     this.showAlert = this.showAlert.bind(this);
     this.loadNewWebsite = this.loadNewWebsite.bind(this);
+    this.handleUsername = this.handleUsername.bind(this);
+    this.handlePassword = this.handlePassword.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -24,7 +27,24 @@ class App extends React.Component {
   }
   
   handleSubmit() {
-    alert("Login sent!")
+    alert("Login sent!\nUsername: " + this.state.username + "\nPassword: " + this.state.password)
+  }
+
+  handleUsername(event) {
+    // console.log("handleUsername")
+    // console.log(event)
+    // console.log(event.target)
+    // console.log(event.target.value)
+    this.setState( { "username": event.target.value} )
+  }
+
+  handlePassword(event) {
+
+    // console.log("handlePassword")
+    // console.log(event)
+    // console.log(event.target)
+    // console.log(event.target.value)
+    this.setState( { "password": event.target.value} )
   }
 
   // Functions (React framework render function)
@@ -48,10 +68,10 @@ class App extends React.Component {
           <button onClick={this.loadNewWebsite} data-cy="load-new-website-button">Load new website</button>
           <div>
             <form onSubmit={this.handleSubmit}>
-              <label for="username">Username:</label><br />
-              <input type="text" id="username" name="username" /><br />
-              <label for="password">Password:</label><br />
-              <input type="text" id="password" name="password" /><br />
+              <label htmlFor="username">Username:</label><br />
+              <input type="text" id="username" name="username" onChange={this.handleUsername}/><br />
+              <label htmlFor="password">Password:</label><br />
+              <input type="text" id="password" name="password" onChange={this.handlePassword} /><br />
               <input type="submit" value="Submit"></input><br />
             </form>
         </div>
