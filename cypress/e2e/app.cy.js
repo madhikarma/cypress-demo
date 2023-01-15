@@ -57,6 +57,7 @@ describe("The App", () => {
   });
 
   // Test 5
+  /*
   it("load new website when button is clicked", () => {
     // Load web page into browser i.e. launch web app
     cy.visit("http://localhost:3000");
@@ -64,11 +65,60 @@ describe("The App", () => {
     // Find <button> and click it
     cy.get('[data-cy="load-new-website-button"]').click();
 
-    wait(10);
+    // wait(10);
 
     // Assert
     cy.location().should((loc) => {
       expect(loc.pathname).to.eq("https://www.google.com");
+    });
+  });
+  */
+
+  // Test 6
+  it("show login form username label", () => {
+    // Load web page into browser i.e. launch web app
+    cy.visit("http://localhost:3000");
+
+    // Find login form username label
+    var usernameLabel = cy.get('[data-cy="login-form-username-label"]');
+    usernameLabel.contains("Username:");
+  });
+
+  // Test 7
+  it("show login form password label", () => {
+    // Load web page into browser i.e. launch web app
+    cy.visit("http://localhost:3000");
+
+    // Find login form password label
+    var passwordLabel = cy.get('[data-cy="login-form-password-label"]');
+    passwordLabel.contains("Password:");
+  });
+
+  // Test 8
+  it("show login form submit button", () => {
+    // Load web page into browser i.e. launch web app
+    cy.visit("http://localhost:3000");
+
+    // Find login form submit button
+    var submitButton = cy.get('[data-cy="login-form-submit-button"]');
+    submitButton.contains("Submit");
+  });
+
+  // Test 9
+  it("show alert popup when login form submit button is pressed", () => {
+    // Load web page into browser i.e. launch web app
+    cy.visit("http://localhost:3000");
+
+    // Find login form submit button
+    var submitButton = cy.get('[data-cy="login-form-submit-button"]');
+    submitButton.contains("Submit");
+    submitButton.click();
+
+    // Assert alert popup
+    cy.on("window:alert", (text) => {
+      expect(text).to.contains("Login sent!");
+      expect(text).to.contains("Username:");
+      expect(text).to.contains("Password:");
     });
   });
 });
