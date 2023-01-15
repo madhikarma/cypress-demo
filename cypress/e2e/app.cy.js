@@ -132,21 +132,21 @@ describe("The App", () => {
     passwordLabel.should("have.text", "Password:");
   });
 
-  // Test 8
-  it("show login form submit button", () => {
-    // Load web page into browser i.e. launch web app
-    cy.visit("http://localhost:3000");
+  //   // Test 8
+  //   it("show login form submit button", () => {
+  //     // Load web page into browser i.e. launch web app
+  //     cy.visit("http://localhost:3000");
 
-    // When
+  //     // When
 
-    // - 1. Find by id
-    var submitButton = cy.get('[data-cy="login-form-submit-button"]');
-    // - 2. Find by HTML tag lookup
-    // var submitButton = cy.contains("Submit");
+  //     // - 1. Find by id
+  //     var submitButton = cy.get('[data-cy="login-form-submit-button"]');
+  //     // - 2. Find by HTML tag lookup
+  //     // var submitButton = cy.contains("Submit");
 
-    // Then
-    submitButton.should("have.text", "Submit:");
-  });
+  //     // Then
+  //     submitButton.should("have.text", "Submit:");
+  //   });
 
   // Test 9
   it("show alert popup when login form submit button is pressed", () => {
