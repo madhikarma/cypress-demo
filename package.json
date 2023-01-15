@@ -16,8 +16,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "e2e-test": "cypress open",
-    "format": "npx prettier --write src/App.js && npx prettier --write cypress/e2e/app.cy.js"
+    "e2e-test": "npx cypress open",
+    "format": "npx prettier --write cypress/e2e/app.cy.js"
   },
   "eslintConfig": {
     "extends": [
