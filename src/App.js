@@ -1,14 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
-import React from 'react';
+import logo from "./logo.svg";
+import "./App.css";
+import React from "react";
 
 class App extends React.Component {
-  
   // Initialiser Function
   constructor(props) {
     super(props);
-    this.state = {value: ''};
-    
+    this.state = { value: "" };
+
     // Bind javascript functions else use arrow function
     this.showAlert = this.showAlert.bind(this);
     this.loadNewWebsite = this.loadNewWebsite.bind(this);
@@ -17,17 +16,22 @@ class App extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  // Functions 
-  showAlert() { 
-    alert("Hello world!")
+  // Functions
+  showAlert() {
+    alert("Hello world!");
   }
 
-  loadNewWebsite() { 
-    window.open("https://www.google.com", "_self")
+  loadNewWebsite() {
+    window.open("https://www.google.com", "_self");
   }
-  
+
   handleSubmit() {
-    alert("Login sent!\nUsername: " + this.state.username + "\nPassword: " + this.state.password)
+    alert(
+      "Login sent!\nUsername: " +
+        this.state.username +
+        "\nPassword: " +
+        this.state.password
+    );
   }
 
   handleUsername(event) {
@@ -35,16 +39,15 @@ class App extends React.Component {
     // console.log(event)
     // console.log(event.target)
     // console.log(event.target.value)
-    this.setState( { "username": event.target.value} )
+    this.setState({ username: event.target.value });
   }
 
   handlePassword(event) {
-
     // console.log("handlePassword")
     // console.log(event)
     // console.log(event.target)
     // console.log(event.target.value)
-    this.setState( { "password": event.target.value} )
+    this.setState({ password: event.target.value });
   }
 
   // Functions (React framework render function)
@@ -64,20 +67,48 @@ class App extends React.Component {
           >
             Learn React
           </a>
-          <button onClick={this.showAlert} data-cy="show-alert-button">Show alert</button>
-          <button onClick={this.loadNewWebsite} data-cy="load-new-website-button">Load new website</button>
+          <button onClick={this.showAlert} data-cy="show-alert-button">
+            Show alert
+          </button>
+          <button
+            onClick={this.loadNewWebsite}
+            data-cy="load-new-website-button"
+          >
+            Load new website
+          </button>
           <div>
             <form onSubmit={this.handleSubmit}>
-              <label htmlFor="username">Username:</label><br />
-              <input type="text" id="username" name="username" onChange={this.handleUsername}/><br />
-              <label htmlFor="password">Password:</label><br />
-              <input type="text" id="password" name="password" onChange={this.handlePassword} /><br />
-              <input type="submit" value="Submit"></input><br />
+              <label htmlFor="username" data-cy="login-username-label">
+                Username:
+              </label>
+              <br />
+              <input
+                type="text"
+                id="username"
+                name="username"
+                onChange={this.handleUsername}
+                data-cy="login-username-textfield"
+              />
+              <br />
+              <label htmlFor="password" data-cy="login-password-label">
+                Password:
+              </label>
+              <br />
+              <input
+                type="text"
+                id="password"
+                name="password"
+                onChange={this.handlePassword}
+                data-cy="login-password-textfield"
+              />
+              <br />
+              <input type="submit" value="Submit"></input>
+              <br />
             </form>
-        </div>
+          </div>
         </header>
       </div>
-    )
+    );
   }
 }
 
