@@ -1,3 +1,5 @@
+import LoginPage from "./loginPage";
+
 import {
   hasSelectionSupport,
   wait,
@@ -189,6 +191,29 @@ describe("The App", () => {
     var submitButton = cy.get('[data-cy="login-form-submit-button"]');
     submitButton.contains("Submit");
     submitButton.click();
+
+    // Then
+    cy.on("window:alert", (text) => {
+      expect(text).to.contains("Login sent!");
+      expect(text).to.contains("Username: " + username);
+      expect(text).to.contains("Password: " + password);
+    });
+  });
+
+  // Test 11 - page object example of test 10
+  it("(page object example) show alert popup when username and password is entered and login form submit button is pressed", () => {
+    // Given
+    const loginPage = new LoginPage();
+    loginPage.visit();
+
+    var username = "david.bowie@mail.com";
+    var password = "password";
+
+    // When
+    loginPage.typeUsername(username);
+    loginPage.typePassword(password);
+
+    loginPage.clickSubmit();
 
     // Then
     cy.on("window:alert", (text) => {
