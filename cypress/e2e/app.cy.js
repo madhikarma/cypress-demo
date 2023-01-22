@@ -1,4 +1,4 @@
-import LoginPage from '../pages/loginPage';
+import LoginPage from "../pages/loginPage";
 
 import {
   hasSelectionSupport,
@@ -205,7 +205,7 @@ describe("The App", () => {
     // Given
     const loginPage = new LoginPage();
     loginPage.visit();
-LoginPage
+    LoginPage;
     var username = "david.bowie@mail.com";
     var password = "password";
 
