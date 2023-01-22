@@ -110,3 +110,5 @@ https://www.w3schools.com/html/html_forms.asp
 https://www.browserstack.com/guide/cypress-page-object-model
 
 https://www.cypress.io/blog/2019/01/03/stop-using-page-objects-and-start-using-app-actions/
+
+https://codefrontend.com/reactjs-redirect-to-url/
