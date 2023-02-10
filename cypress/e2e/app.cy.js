@@ -223,20 +223,14 @@ describe("The App", () => {
     });
   });
 
-  // Test 12 - login form - (validation) show alert popup when username and password is empty and login form submit button is pressed
-  it("login form - (validation) show alert popup when username and password is empty and login form submit button is pressed", () => {
+  // Test 12 - should show username and password empty error message when login form is submitted
+  it("should show username and password empty error message when login form is submitted", () => {
     // Given
     cy.visit("http://localhost:3000");
     var username = "david.bowie@mail.com";
     var password = "password";
 
     // When
-    // var usernameLabel = cy.get('[data-cy="login-form-username-label"]');
-    // usernameLabel.type(username);
-
-    // var passwordLabel = cy.get('[data-cy="login-form-password-label"]');
-    // passwordLabel.type(password);
-
     var submitButton = cy.get('[data-cy="login-form-submit-button"]');
     submitButton.contains("Submit");
     submitButton.click();
@@ -244,6 +238,46 @@ describe("The App", () => {
     // Then
     cy.on("window:alert", (text) => {
       expect(text).to.equal("Error: Username and Password are empty");
+    });
+  });
+
+  // Test 13 - should show username empty error message when login form is submitted
+  it("should show username empty error message when login form is submitted", () => {
+    // Given
+    cy.visit("http://localhost:3000");
+    var password = "password";
+
+    // When
+    var passwordLabel = cy.get('[data-cy="login-form-password-label"]');
+    passwordLabel.type(password);
+
+    var submitButton = cy.get('[data-cy="login-form-submit-button"]');
+    submitButton.contains("Submit");
+    submitButton.click();
+
+    // Then
+    cy.on("window:alert", (text) => {
+      expect(text).to.equal("Error: Username is empty");
+    });
+  });
+
+  // Test 14 - should show password empty error message when login form is submitted
+  it("should show password empty error message when login form is submitted", () => {
+    // Given
+    cy.visit("http://localhost:3000");
+    var username = "david.bowie@mail.com";
+
+    // When
+    var usernameLabel = cy.get('[data-cy="login-form-username-label"]');
+    usernameLabel.type(username);
+
+    var submitButton = cy.get('[data-cy="login-form-submit-button"]');
+    submitButton.contains("Submit");
+    submitButton.click();
+
+    // Then
+    cy.on("window:alert", (text) => {
+      expect(text).to.equal("Error: Password is empty");
     });
   });
 });
