@@ -78,9 +78,9 @@ class App extends React.Component {
           <div>
             <form onSubmit={this.handleSubmit}>
               <label htmlFor="username" data-cy="login-form-username-label">Username:</label><br />
-              <input type="text" id="username" name="username" onChange={this.handleUsername} data-cy="login-form-username-textfield"/><br />
+              <input type="text" id="username" name="username" onChange={this.handleUsername} data-cy="login-form-username-input"/><br />
               <label htmlFor="password" data-cy="login-form-password-label">Password:</label><br />
-              <input type="text" id="password" name="password" onChange={this.handlePassword} data-cy="login-form-password-textfield" /><br />
+              <input type="text" id="password" name="password" onChange={this.handlePassword} data-cy="login-form-password-input" /><br />
               <input type="submit" value="Submit" data-cy="login-form-submit-button"></input><br />
             </form>
         </div>
