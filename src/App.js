@@ -28,7 +28,15 @@ class App extends React.Component {
   
   handleSubmit() {
     // Note. will be 'Username: undefined' and 'Password: undefined' until the app uses validation
-    alert("Login sent!\nUsername: " + this.state.username + "\nPassword: " + this.state.password)
+    if (this.state.username == null && this.state.password == null) {
+      alert("Error: Username and Password are empty")
+    } else if (this.state.username == null) {
+      alert("Error: Username is empty")
+    } else if (this.state.password == null) {
+      alert("Error: Password is empty")
+    } else {
+      alert("Login sent!\nUsername: " + this.state.username + "\nPassword: " + this.state.password)
+    }
   }
 
   handleUsername(event) {
