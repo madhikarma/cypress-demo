@@ -150,31 +150,31 @@ describe("The App", () => {
   //     submitButton.should("have.text", "Submit:");
   //   });
 
-  // Test 9
-  it("show alert popup when login form submit button is pressed", () => {
-    // Given
+  // // Test 9
+  // it("show alert popup when login form submit button is pressed", () => {
+  //   // Given
 
-    // - Load web page into browser i.e. launch web app
-    cy.visit("http://localhost:3000");
+  //   // - Load web page into browser i.e. launch web app
+  //   cy.visit("http://localhost:3000");
 
-    // When
+  //   // When
 
-    // - Find login form submit button
-    var submitButton = cy.get('[data-cy="login-form-submit-button"]');
-    submitButton.contains("Submit");
-    submitButton.click();
+  //   // - Find login form submit button
+  //   var submitButton = cy.get('[data-cy="login-form-submit-button"]');
+  //   submitButton.contains("Submit");
+  //   submitButton.click();
 
-    // Then
+  //   // Then
 
-    // - Assert alert popup
-    cy.on("window:alert", (text) => {
-      expect(text).to.contains("Login sent!");
-      expect(text).to.contains("Username:"); // Note. will be 'Username: undefined' until the app uses validation
-      expect(text).to.contains("Password:"); // Note. will be 'Password: undefined' until the app uses validation
-    });
-  });
+  //   // - Assert alert popup
+  //   cy.on("window:alert", (text) => {
+  //     expect(text).to.contains("Login sent!");
+  //     expect(text).to.contains("Username:"); // Note. will be 'Username: undefined' until the app uses validation
+  //     expect(text).to.contains("Password:"); // Note. will be 'Password: undefined' until the app uses validation
+  //   });
+  // });
 
-  // Test 10
+  // Test 10 - login form
   it("show alert popup when username and password is entered and login form submit button is pressed", () => {
     // Given
     cy.visit("http://localhost:3000");
@@ -220,6 +220,30 @@ describe("The App", () => {
       expect(text).to.contains("Login sent!");
       expect(text).to.contains("Username: " + username);
       expect(text).to.contains("Password: " + password);
+    });
+  });
+
+  // Test 12 - login form - (validation) show alert popup when username and password is empty and login form submit button is pressed
+  it("login form - (validation) show alert popup when username and password is empty and login form submit button is pressed", () => {
+    // Given
+    cy.visit("http://localhost:3000");
+    var username = "david.bowie@mail.com";
+    var password = "password";
+
+    // When
+    // var usernameLabel = cy.get('[data-cy="login-form-username-label"]');
+    // usernameLabel.type(username);
+
+    // var passwordLabel = cy.get('[data-cy="login-form-password-label"]');
+    // passwordLabel.type(password);
+
+    var submitButton = cy.get('[data-cy="login-form-submit-button"]');
+    submitButton.contains("Submit");
+    submitButton.click();
+
+    // Then
+    cy.on("window:alert", (text) => {
+      expect(text).to.equal("Error: Username and Password are empty");
     });
   });
 });
