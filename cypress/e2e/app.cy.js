@@ -184,21 +184,40 @@ describe("The App", () => {
     // When
 
     // - Username:
+    // Find label by dat-cy id:
     // var usernameElement = cy.get('[data-cy="login-form-username-label"]');
+
+    // Find input by data-cy id:
     // var usernameElement = cy.get('[data-cy="login-form-username-input"]');
+
+    // Find input:
     // var usernameElement = cy.find("input").first()
+
+    // Find label by text (using contains):
     var usernameElement = cy.contains("Username:");
     usernameElement.type(username);
 
     // - Password:
+
+    // Find label for the input by data-cy id:
     // var passwordElement = cy.get('[data-cy="login-form-password-label"]');
+
+    // Find input by data-cy id:
     // var passwordElement = cy.get('[data-cy="login-form-password-input"]');
+
+    // Find input:
     // var passwordElement = cy.find("input").last()
+
+    // Find label by text (using contains):
     var passwordElement = cy.contains("Password:");
     passwordElement.type(password);
 
     // - Submit button:
+
+    // Find submit button by data-cy id:
     // var submitButton = cy.get('[data-cy="login-form-submit-button"]');
+
+    // Find submit button by text (using contains):
     var submitButton = cy.contains("Submit");
     submitButton.click();
 
