@@ -26,8 +26,8 @@ class App extends React.Component {
     window.open("https://www.google.com", "_self")
   }
   
-  handleSubmit() {
-  
+  handleSubmit(event) {
+    event.preventDefault()
     // Note. will be 'Username: undefined' and 'Password: undefined' until the app uses validation
 
     var isUsernameEmpty = false
@@ -53,6 +53,7 @@ class App extends React.Component {
   }
 
   handleUsername(event) {
+    event.preventDefault()
     // console.log("handleUsername")
     // console.log(event)
     // console.log(event.target)
@@ -61,7 +62,7 @@ class App extends React.Component {
   }
 
   handlePassword(event) {
-
+    event.preventDefault()
     // console.log("handlePassword")
     // console.log(event)
     // console.log(event.target)
