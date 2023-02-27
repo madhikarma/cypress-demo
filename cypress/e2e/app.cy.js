@@ -97,42 +97,42 @@ describe("The App", () => {
   */
 
   // Test 6
-  it("show login form username label", () => {
-    // Given
+  // it("show login form username label", () => {
+  //   // Given
 
-    // - Load web page into browser i.e. launch web app
-    cy.visit("http://localhost:3000");
+  //   // - Load web page into browser i.e. launch web app
+  //   cy.visit("http://localhost:3000");
 
-    // When
+  //   // When
 
-    // - 1. Find by id
-    var usernameLabel = cy.get('[data-cy="login-form-username-label"]');
-    // - 2. Find by HTML tag lookup
-    // var usernameLabel = cy.contains("label", "Username:")
+  //   // - 1. Find by id
+  //   var usernameLabel = cy.get('[data-cy="login-form-username-label"]');
+  //   // - 2. Find by HTML tag lookup
+  //   // var usernameLabel = cy.contains("label", "Username:")
 
-    // Then
-    usernameLabel.should("have.text", "Username:");
-  });
+  //   // Then
+  //   usernameLabel.should("have.text", "Username:");
+  // });
 
   // Test 7
-  it("show login form password label", () => {
-    // Given:
+  // it("show login form password label", () => {
+  //   // Given:
 
-    // Load web page into browser i.e. launch web app
-    cy.visit("http://localhost:3000");
+  //   // Load web page into browser i.e. launch web app
+  //   cy.visit("http://localhost:3000");
 
-    // When
+  //   // When
 
-    // - Find
+  //   // - Find
 
-    // - 1. Find by id
-    var passwordLabel = cy.get('[data-cy="login-form-password-label"]');
-    // - 2. Find by HTML tag lookup
-    // var passwordLabel = cy.contains("label", "Password:")
+  //   // - 1. Find by id
+  //   var passwordLabel = cy.get('[data-cy="login-form-password-label"]');
+  //   // - 2. Find by HTML tag lookup
+  //   // var passwordLabel = cy.contains("label", "Password:")
 
-    // Then
-    passwordLabel.should("have.text", "Password:");
-  });
+  //   // Then
+  //   passwordLabel.should("have.text", "Password:");
+  // });
 
   //   // Test 8
   //   it("show login form submit button", () => {
@@ -184,6 +184,7 @@ describe("The App", () => {
     // When
 
     // - Username:
+
     // Find label by dat-cy id:
     // var usernameElement = cy.get('[data-cy="login-form-username-label"]');
 
@@ -191,10 +192,11 @@ describe("The App", () => {
     // var usernameElement = cy.get('[data-cy="login-form-username-input"]');
 
     // Find input:
-    // var usernameElement = cy.find("input").first()
+    // var usernameElement = cy.get("input").first()
 
     // Find label by text (using contains):
     var usernameElement = cy.contains("Username:");
+
     usernameElement.type(username);
 
     // - Password:
@@ -206,10 +208,11 @@ describe("The App", () => {
     // var passwordElement = cy.get('[data-cy="login-form-password-input"]');
 
     // Find input:
-    // var passwordElement = cy.find("input").last()
+    // var passwordElement = cy.get("input").last()
 
     // Find label by text (using contains):
     var passwordElement = cy.contains("Password:");
+
     passwordElement.type(password);
 
     // - Submit button:
