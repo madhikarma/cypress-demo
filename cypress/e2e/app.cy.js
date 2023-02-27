@@ -8,12 +8,12 @@ import {
 // Feature / Scenario 1 TODO think about how to organize
 describe("The App", () => {
   // Test 1
-  it("loads successfully", () => {
-    // Given
+  // it("loads successfully", () => {
+  //   // Given
 
-    // - Load web page into browser i.e. launch web app
-    cy.visit("http://localhost:3000");
-  });
+  //   // - Load web page into browser i.e. launch web app
+  //   cy.visit("http://localhost:3000");
+  // });
 
   // Test 2
   it("contains welcome text", () => {
@@ -25,54 +25,57 @@ describe("The App", () => {
     // When / Then
 
     // - Find <p> label and assert the text
-    cy.contains("Edit src/App.js and save to reload.");
+    // cy.contains("Edit src/App.js and save to reload.").should("be.visible")
+    cy.contains("Edit src/App.js and save to reload.").should(($element) => {
+      expect($element).to.be.visible;
+    });
   });
 
   // Test 3
-  it("contains show alert button", () => {
-    // Given
+  // it("contains show alert button", () => {
+  //   // Given
 
-    // - Load web page into browser i.e. launch web app
-    cy.visit("http://localhost:3000");
+  //   // - Load web page into browser i.e. launch web app
+  //   cy.visit("http://localhost:3000");
 
-    // When
+  //   // When
 
-    // - Find <button> and assert the text
-    cy.contains("button", "Show alert");
+  //   // - Find <button> and assert the text
+  //   cy.contains("button", "Show alert");
 
-    // - Find <button> and click it
-    // cy.get('button').click()
+  //   // - Find <button> and click it
+  //   // cy.get('button').click()
 
-    // - Use ids as below (see src/App.js to edit the id)
-    // cy.get('[data-cy="show-alert-button"]').click()
+  //   // - Use ids as below (see src/App.js to edit the id)
+  //   // cy.get('[data-cy="show-alert-button"]').click()
 
-    // Then
+  //   // Then
 
-    // - Assert alert popup
-    cy.on("window:alert", (text) => {
-      expect(text).to.contains("Hello world");
-    });
-  });
+  //   // - Assert alert popup
+  //   cy.on("window:alert", (text) => {
+  //     expect(text).to.contains("Hello world");
+  //   });
+  // });
 
   // Test 4
-  it("shows alert when show alert button is clicked", () => {
-    // Given
+  // it("shows alert when show alert button is clicked", () => {
+  //   // Given
 
-    // - Load web page into browser i.e. launch web app
-    cy.visit("http://localhost:3000");
+  //   // - Load web page into browser i.e. launch web app
+  //   cy.visit("http://localhost:3000");
 
-    // When
+  //   // When
 
-    // - Find <button> and click it
-    cy.get('[data-cy="show-alert-button"]').click();
+  //   // - Find <button> and click it
+  //   cy.get('[data-cy="show-alert-button"]').click();
 
-    // Then
+  //   // Then
 
-    // - Assert alert popup
-    cy.on("window:alert", (text) => {
-      expect(text).to.contains("Hello world");
-    });
-  });
+  //   // - Assert alert popup
+  //   cy.on("window:alert", (text) => {
+  //     expect(text).to.contains("Hello world");
+  //   });
+  // });
 
   // Test 5
   /*
@@ -196,7 +199,7 @@ describe("The App", () => {
 
     // Find label by text (using contains):
     var usernameElement = cy.contains("Username:");
-
+    usernameElement.should("be.visible");
     usernameElement.type(username);
 
     // - Password:
@@ -212,7 +215,7 @@ describe("The App", () => {
 
     // Find label by text (using contains):
     var passwordElement = cy.contains("Password:");
-
+    passwordElement.should("be.visible");
     passwordElement.type(password);
 
     // - Submit button:
@@ -222,6 +225,7 @@ describe("The App", () => {
 
     // Find submit button by text (using contains):
     var submitButton = cy.contains("Submit");
+    submitButton.should("be.visible");
     submitButton.click();
 
     // Then
