@@ -22,13 +22,17 @@ describe("The App", () => {
     // - Load web page into browser i.e. launch web app
     cy.visit("http://localhost:3000");
 
-    // When / Then
+    // When
+    let element = cy.contains("Edit src/App.js and save to reload.");
 
-    // - Find <p> label and assert the text
-    // cy.contains("Edit src/App.js and save to reload.").should("be.visible")
-    cy.contains("Edit src/App.js and save to reload.").should(($element) => {
-      expect($element).to.be.visible;
-    });
+    // Then
+    // 1. Find <p> label via contains and assert the text with should helper
+    element.should("be.visible");
+
+    // 2. Find <p> label via contains and assert the text with should + expect
+    // element.should(($element) => {
+    //   expect($element).to.be.visible;
+    // });
   });
 
   // Test 3
