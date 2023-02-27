@@ -30,9 +30,9 @@ class App extends React.Component {
     // Note. will be 'Username: undefined' and 'Password: undefined' until the app uses validation
     if (this.state.username == null && this.state.password == null) {
       alert("Error: Username and Password are empty")
-    } else if (this.state.username == null) {
+    } else if (this.state.username == null || (this.state.username != null && this.state.username.length === 0)) {
       alert("Error: Username is empty")
-    } else if (this.state.password == null) {
+    } else if (this.state.password == null || (this.state.password != null && this.state.password.length === 0)) {
       alert("Error: Password is empty")
     } else {
       alert("Login sent!\nUsername: " + this.state.username + "\nPassword: " + this.state.password)
