@@ -203,7 +203,17 @@ describe("The App", () => {
 
     // Find label by text (using contains):
     var usernameElement = cy.contains("Username:");
+
+    // Assert text
+    // - 1. use should with text string
     usernameElement.should("be.visible");
+    usernameElement.should("have.text", "Username:");
+    // - 2. use should with function
+    usernameElement.should(($element) => {
+      expect($element).to.be.visible;
+      expect($element).to.have.text("Username:");
+    });
+    // Type username
     usernameElement.type(username);
 
     // - Password:
@@ -219,17 +229,36 @@ describe("The App", () => {
 
     // Find label by text (using contains):
     var passwordElement = cy.contains("Password:");
+
+    // Assert text
+    // - 1. use should with text string
     passwordElement.should("be.visible");
+    passwordElement.should("have.text", "Password:");
+    // - 2. use should with function
+    passwordElement.should(($element) => {
+      expect($element).to.be.visible;
+      expect($element).to.have.text("Password:");
+    });
+    // Type password
     passwordElement.type(password);
 
     // - Submit button:
 
-    // Find submit button by data-cy id:
+    // Find submit (input) button by data-cy id:
     // var submitButton = cy.get('[data-cy="login-form-submit-button"]');
-
-    // Find submit button by text (using contains):
+    // Find submit (input)  button by text (using contains):
     var submitButton = cy.contains("Submit");
+
+    // Assert text
+    // - 1. use should with method string
     submitButton.should("be.visible");
+    submitButton.should("have.value", "Submit");
+    // - 2. use should with function
+    submitButton.should(($element) => {
+      expect($element).to.be.visible;
+      expect($element).to.have.value("Submit");
+    });
+    // Click submit input button
     submitButton.click();
 
     // Then
