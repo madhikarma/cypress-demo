@@ -199,7 +199,7 @@ describe("The App", () => {
     // var usernameElement = cy.get('[data-cy="login-form-username-input"]');
 
     // Find input:
-    // var usernameElement = cy.get("input").first()
+    // var usernameElement = cy.get("label").eq(0)
 
     // Find label by text (using contains):
     var usernameElement = cy.contains("Username:");
@@ -225,7 +225,7 @@ describe("The App", () => {
     // var passwordElement = cy.get('[data-cy="login-form-password-input"]');
 
     // Find input:
-    // var passwordElement = cy.get("input").last()
+    // var passwordElement = cy.get("label").eq(1)
 
     // Find label by text (using contains):
     var passwordElement = cy.contains("Password:");
