@@ -202,9 +202,11 @@ describe("The App", () => {
 
     var usernameInput = getUsernameInput();
     usernameInput.should("be.visible");
+    usernameInput.should("have.attr", "type", "text");
     usernameInput.should("have.attr", "placeholder", "Username:");
     usernameInput.should(($element) => {
       expect($element).to.be.visible;
+      expect($element).to.have.attr("type", "text");
       expect($element).to.have.attr("placeholder", "Username:");
     });
 
@@ -222,9 +224,11 @@ describe("The App", () => {
 
     var passwordInput = getPasswordInput();
     passwordInput.should("be.visible");
+    passwordInput.should("have.attr", "type", "text");
     passwordInput.should("have.attr", "placeholder", "Password:");
     passwordInput.should(($element) => {
       expect($element).to.be.visible;
+      expect($element).to.have.attr("type", "text");
       expect($element).to.have.attr("placeholder", "Password:");
     });
 
