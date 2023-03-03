@@ -192,56 +192,46 @@ describe("The App", () => {
 
     // - Username:
 
-    // Find label by dat-cy id:
-    // var usernameElement = cy.get('[data-cy="login-form-username-label"]');
+    // var usernameLabel = getUsernameLabel()
+    // usernameLabel.should("be.visible");
+    // usernameLabel.should("have.text", "Username:");
+    // usernameLabel.should(($element) => {
+    //   expect($element).to.be.visible;
+    //   expect($element).to.have.text("Username:");
+    // });
 
-    // Find input by data-cy id:
-    // var usernameElement = cy.get('[data-cy="login-form-username-input"]');
-
-    // Find input:
-    // var usernameElement = cy.get("label").eq(0)
-
-    // Find label by text (using contains):
-    var usernameElement = cy.contains("Username:");
-
-    // Assert text
-    // - 1. use should with text string
-    usernameElement.should("be.visible");
-    usernameElement.should("have.text", "Username:");
-    // - 2. use should with function
-    usernameElement.should(($element) => {
+    var usernameInput = getUsernameInput();
+    usernameInput.should("be.visible");
+    usernameInput.should("have.attr", "placeholder", "Username:");
+    usernameInput.should(($element) => {
       expect($element).to.be.visible;
-      expect($element).to.have.text("Username:");
+      expect($element).to.have.attr("placeholder", "Username:");
     });
+
     // Type username
-    usernameElement.type(username);
+    usernameInput.type(username);
 
     // - Password:
+    // var passwordLabel = getPasswordLabel()
+    // passwordLabel.should("be.visible");
+    // passwordLabel.should("have.text", "Password:");
+    // passwordLabel.should(($element) => {
+    //   expect($element).to.be.visible;
+    //   expect($element).to.have.text("Password:");
+    // });
 
-    // Find label for the input by data-cy id:
-    // var passwordElement = cy.get('[data-cy="login-form-password-label"]');
+    var passwordInput = getPasswordInput();
+    passwordInput.should("be.visible");
+    passwordInput.should("have.attr", "placeholder", "Password:");
+    passwordInput.should(($element) => {
+      expect($element).to.be.visible;
+      expect($element).to.have.attr("placeholder", "Password:");
+    });
 
-    // Find input by data-cy id:
-    // var passwordElement = cy.get('[data-cy="login-form-password-input"]');
+    // Type password
+    passwordInput.type(password);
 
     // Find input:
-    // var passwordElement = cy.get("label").eq(1)
-
-    // Find label by text (using contains):
-    var passwordElement = cy.contains("Password:");
-
-    // Assert text
-    // - 1. use should with text string
-    passwordElement.should("be.visible");
-    passwordElement.should("have.text", "Password:");
-    // - 2. use should with function
-    passwordElement.should(($element) => {
-      expect($element).to.be.visible;
-      expect($element).to.have.text("Password:");
-    });
-    // Type password
-    passwordElement.type(password);
-
     // - Submit button:
 
     // Find submit (input) button by data-cy id:
@@ -273,6 +263,39 @@ describe("The App", () => {
       );
     });
   });
+
+  // Getters
+
+  // Find label for the input by data-cy id:
+  // var passwordElement = cy.get('[data-cy="login-form-password-label"]');
+
+  // Find input by data-cy id:
+  // var passwordElement = cy.get('[data-cy="login-form-password-input"]');
+
+  // Find input:
+  // var passwordElement = cy.get("label").eq(1)
+
+  // Find input:
+  // var passwordElement = cy.get("input").eq(1)
+
+  // Find label by text (using contains):
+  // var passwordElement = cy.contains("Password:");
+
+  function getUsernameLabel() {
+    return cy.get('[data-cy="login-form-username-label"]');
+  }
+
+  function getUsernameInput() {
+    return cy.get('[data-cy="login-form-username-input"]');
+  }
+
+  function getPasswordLabel() {
+    return cy.get('[data-cy="login-form-password-label"]');
+  }
+
+  function getPasswordInput() {
+    return cy.get('[data-cy="login-form-password-input"]');
+  }
 
   // // Test 11 - page object example of test 10
   // it("(page object example) show alert popup when username and password is entered and login form submit button is pressed", () => {
