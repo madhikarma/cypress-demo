@@ -7,35 +7,35 @@ import {
 
 // Feature / Scenario 1 TODO think about how to organize
 describe("The App", () => {
-  // Test 1
-  // it("loads successfully", () => {
-  //   // Given
+  // Test - loads
+  it("loads successfully", () => {
+    // Given
 
-  //   // - Load web page into browser i.e. launch web app
-  //   cy.visit("http://localhost:3000");
-  // });
+    // - Load web page into browser i.e. launch web app
+    cy.visit("http://localhost:3000");
+  });
 
   // Test 2
-  // it("contains welcome text", () => {
-  //   // Given
+  it("contains welcome text", () => {
+    // Given
 
-  //   // - Load web page into browser i.e. launch web app
-  //   cy.visit("http://localhost:3000");
+    // - Load web page into browser i.e. launch web app
+    cy.visit("http://localhost:3000");
 
-  //   // When
-  //   let element = cy.contains("Edit src/App.js and save to reload.");
+    // When
+    let element = cy.contains("Edit src/App.js and save to reload.");
 
-  //   // Then
-  //   // 1. Find <p> label via contains and assert the text with should helper
-  //   element.should("be.visible");
+    // Then
+    // 1. Find <p> label via contains and assert the text with should helper
+    element.should("be.visible");
 
-  //   // 2. Find <p> label via contains and assert the text with should + expect
-  //   // element.should(($element) => {
-  //   //   expect($element).to.be.visible;
-  //   // });
-  // });
+    // 2. Find <p> label via contains and assert the text with should + expect
+    // element.should(($element) => {
+    //   expect($element).to.be.visible;
+    // });
+  });
 
-  // Test 10 - login form
+  // Test - login form
   it("show alert popup when username and password is entered and login form submit button is pressed", () => {
     // Given
     cy.visit("http://localhost:3000");
@@ -133,22 +133,7 @@ describe("The App", () => {
   //   });
   // });
 
-  // Getters
-
-  // Find label for the input by data-cy id:
-  // var passwordElement = cy.get('[data-cy="login-form-password-label"]');
-
-  // Find input by data-cy id:
-  // var passwordElement = cy.get('[data-cy="login-form-password-input"]');
-
-  // Find input:
-  // var passwordElement = cy.get("label").eq(1)
-
-  // Find input:
-  // var passwordElement = cy.get("input").eq(1)
-
-  // Find label by text (using contains):
-  // var passwordElement = cy.contains("Password:");
+  // Utility functions
 
   function getUsernameLabel() {
     // return cy.get('[data-cy="login-form-username-label"]');

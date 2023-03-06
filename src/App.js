@@ -91,9 +91,7 @@ class App extends React.Component {
           <button onClick={this.loadNewWebsite} data-cy="load-new-website-button">Load new website</button>
           <div>
             <form onSubmit={this.handleSubmit}>
-              {/* <label htmlFor="username" data-cy="login-form-username-label">Username:</label><br /> */}
               <input type="text" id="username" name="username" placeholder="Username:" onChange={this.handleUsername} data-cy="login-form-username-input"/><br />
-              {/* <label htmlFor="password" data-cy="login-form-password-label">Password:</label><br /> */}
               <input type="text" id="password" name="password"  placeholder="Password:" onChange={this.handlePassword} data-cy="login-form-password-input" /><br />
               <input type="submit" value="Submit" data-cy="login-form-submit-button"></input><br />
             </form>
