@@ -15,7 +15,7 @@ describe("The App", () => {
     cy.visit("http://localhost:3000");
   });
 
-  // Test 2
+  // Test - welcome text
   it("contains welcome text", () => {
     // Given
 
@@ -72,7 +72,7 @@ describe("The App", () => {
     });
   });
 
-  // Test 10 - login form (password is empty)
+  // Test - login form (password is empty)
   it("show alert popup when username is empty and login form submit button is pressed", () => {
     // Given
     cy.visit("http://localhost:3000");
@@ -91,7 +91,7 @@ describe("The App", () => {
     });
   });
 
-  // Test 10 - login form (username is empty)
+  // Test - login form (username is empty)
   it("show alert popup when password is empty and login form submit button is pressed", () => {
     // Given
     cy.visit("http://localhost:3000");
@@ -110,7 +110,7 @@ describe("The App", () => {
     });
   });
 
-  // // Test 11 - page object example of test 10
+  // // Test - page object example of test 10
   // it("(page object example) show alert popup when username and password is entered and login form submit button is pressed", () => {
   //   // Given
   //   const loginPage = new LoginPage();
