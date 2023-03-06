@@ -274,6 +274,44 @@ describe("The App", () => {
     });
   });
 
+  // Test 10 - login form (password is empty)
+  it("show alert popup when username is empty and login form submit button is pressed", () => {
+    // Given
+    cy.visit("http://localhost:3000");
+    var username = "david.bowie@mail.com";
+
+    // When (type username and submit)
+    var usernameElement = cy.contains("Username:");
+    usernameElement.type(username);
+
+    var submitButton = cy.contains("Submit");
+    submitButton.click();
+
+    // Then
+    cy.on("window:alert", (text) => {
+      expect(text).to.equal("Error: Password is empty");
+    });
+  });
+
+  // Test 10 - login form (username is empty)
+  it("show alert popup when password is empty and login form submit button is pressed", () => {
+    // Given
+    cy.visit("http://localhost:3000");
+    var password = "password";
+
+    // When (type password and submit)
+    var passwordElement = cy.contains("Password:");
+    passwordElement.type(password);
+
+    var submitButton = cy.contains("Submit");
+    submitButton.click();
+
+    // Then
+    cy.on("window:alert", (text) => {
+      expect(text).to.equal("Error: Username is empty");
+    });
+  });
+
   // // Test 11 - page object example of test 10
   // it("(page object example) show alert popup when username and password is entered and login form submit button is pressed", () => {
   //   // Given
