@@ -1,0 +1,32 @@
+.ProductCardContainer {
+    /* display: flex;
+    justify-content: left;
+    align-items: center;   */
+    border-width:2px;
+    border-style:solid;
+    border-color:red
+}
+
+.productCard {
+    border-width:2px;
+    border-style:solid;
+    border-color:black;
+}
+
+.priceContainer {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.regularPrice {
+    text-decoration: none
+}
+
+.oldPrice {
+    text-decoration: line-through;
+}
+
+.salePrice {
+    color: red;
+}
