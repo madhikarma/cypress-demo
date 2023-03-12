@@ -16,13 +16,6 @@ class ProductCard extends React.Component {
     return this.state.salePrice != null
   }
 
-  renderIsOnSaleLabel() {
-    if (this.isOnSale()) {
-      return <p className='productCardSalePrice'>SALE</p>
-    } 
-    return null
-  }
-
   // Functions (React framework render function)
   render() {
     return (
@@ -31,11 +24,13 @@ class ProductCard extends React.Component {
           <img src={this.state.image} width="200" height="200" className='productCardImage' data-cy="product-card-image" />
         </a>
         <p className='productCardName' data-cy="product-card-name">{this.state.name}</p>
-        <div className="priceContainer" data-cy="product-card-price-container">
+        <div className='productCardPriceContainer'>
           <p className={ this.isOnSale() ? 'productCardOldPrice' : 'productCardRegularPrice'} data-cy="product-card-price">{this.state.price}</p>
-          <p className='salePrice' data-cy="product-card-sale-price">{this.state.salePrice}</p>
+          <p className='productCardSalePrice' data-cy="product-card-sale-price">{this.state.salePrice}</p>
         </div>
-        {this.renderIsOnSaleLabel()}
+        { 
+          this.isOnSale() ? <p className='productCardSaleLabel' data-cy="product-card-sale-label">SALE</p> : null
+        }
         <p className='productCardDescription' data-cy="product-card-description">{this.state.description}</p>
       </div>
     )
