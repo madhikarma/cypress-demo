@@ -13,20 +13,36 @@
     border-color:black;
 }
 
+.productCardImageLink {
+       
+}
+
+.productCardImage {
+    
+}
+
+.productCardName {
+    
+}
+
 .priceContainer {
     display: flex;
     justify-content: left;
     align-items: center;
 }
 
-.regularPrice {
+.productCardRegularPrice {
     text-decoration: none
 }
 
-.oldPrice {
+.productCardOldPrice {
     text-decoration: line-through;
 }
 
-.salePrice {
+.productCardSalePrice {
     color: red;
+}
+
+.productCardDescription {
+    
 }
