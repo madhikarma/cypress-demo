@@ -13,7 +13,7 @@ root.render(
   <React.StrictMode>
     {/* <App value=''/> */}
     <ProductCard productURL="https://www.nike.com" image={nikeJordansSneakerImage} name="Nike Air Jordans" description="Some description about these Nike Jordan sneakers." price="£39.99" salePrice="£35.99"/>
-    <ProductCard productURL="https://www.nike.com" image={nikeZoomVistaGrindImage} name="Nike Zoom Vista" description="Some description about these Nike Zoom Vista Grind sneakers." price="£69.99" />
+    {/* <ProductCard productURL="https://www.nike.com" image={nikeZoomVistaGrindImage} name="Nike Zoom Vista" description="Some description about these Nike Zoom Vista Grind sneakers." price="£69.99" /> */}
   </React.StrictMode>
 );
 
