@@ -19,11 +19,13 @@ describe("The Product Card", () => {
 
     // Then
     image.should("be.visible");
-    image.should(
-      "have.attr",
-      "src",
-      "/static/media/Jordanlow2_1400x.0e81af5d0765dd76fda4.jpg"
-    );
+    image.should("have.attr", "src").then((value) => {
+      console.log(value);
+      // Note. local image URL will be something like /static/media/nike-air-jordan.0e81af5d0765dd76fda4.jpg
+      // So let's check it contains
+      expect(value).to.include("nike-air-jordan");
+      expect(value).to.include(".jpg");
+    });
   });
 
   it("should render product card name", () => {
@@ -102,7 +104,7 @@ describe("The Product Card", () => {
     // Then
     var isLoaded = false;
     cy.url().then((url) => {
-      // Note. due to redirects lots of URLs will load so we check each one
+      // Note. due to redirects (i thikn) lots of URLs will load so we check each one
       if (url.toString().includes("nike.com")) {
         isLoaded = true;
       } else {
