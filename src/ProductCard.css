@@ -1,20 +1,19 @@
-.ProductCardContainer {
+.productCard {
     /* display: flex;
     justify-content: left;
     align-items: center;   */
-    border-width:2px;
+    margin: 10pt;
+    border-radius: 2pt;
+    border-width:2pt;
     border-style:solid;
-    border-color:red
-}
-
-.productCard {
-    border-width:2px;
-    border-style:solid;
-    border-color:black;
+    border-color:grey;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    background-color: lightgrey;   
+    display: inline-block; /* Stop full width */
 }
 
 .productCardImageLink {
-       
+    
 }
 
 .productCardImage {
@@ -44,7 +43,7 @@
 }
 
 .productCardSaleLabel {
-    color: gold;
+    color: black;
 }
 
 .productCardDescription {

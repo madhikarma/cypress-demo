@@ -88,4 +88,27 @@ describe("The Product Card", () => {
       "Some description about these Nike Jordan sneakers."
     );
   });
+
+  it("should visit store URL when image is clocked", () => {
+    // Given
+    cy.visit("http://localhost:3000");
+
+    // When
+    var image = cy.get("img");
+    image.should("be.visible");
+    var imageLink = cy.get("a");
+    imageLink.click();
+
+    // Then
+    var didLoad = false;
+    cy.url().then((url) => {
+      // Note. due to redirects lots of URLs will load so we check each one
+      if (url.toString().includes("nike.com")) {
+        didLoad = true;
+      } else {
+        didLoad = false;
+      }
+    });
+    expect(isLoaded, true);
+  });
 });
