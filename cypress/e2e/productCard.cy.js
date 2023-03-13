@@ -19,12 +19,13 @@ describe("The Product Card", () => {
 
     // Then
     image.should("be.visible");
-    image.should("have.attr", "src").then((value) => {
-      console.log(value);
+    image.should("have.attr", "src").then((url) => {
+      // TODO: remove log
+      console.log("Debug: image URL is: " + url);
       // Note. local image URL will be something like /static/media/nike-air-jordan.0e81af5d0765dd76fda4.jpg
       // So let's check it contains
-      expect(value).to.include("nike-air-jordan");
-      expect(value).to.include(".jpg");
+      expect(url).to.include("nike-air-jordan");
+      expect(url).to.include(".jpg");
     });
   });
 
@@ -50,6 +51,7 @@ describe("The Product Card", () => {
     // Then
     price.should("be.visible");
     price.should("have.text", "£39.99");
+    price.invoke("css", "text-decoration").should("include", "line-through");
   });
 
   it("should render product card sale price", () => {
@@ -104,6 +106,8 @@ describe("The Product Card", () => {
     // Then
     var isLoaded = false;
     cy.url().then((url) => {
+      // TODO: remove log
+      console.log("Debug: URL is: " + url);
       // Note. due to redirects (i thikn) lots of URLs will load so we check each one
       if (url.toString().includes("nike.com")) {
         isLoaded = true;
