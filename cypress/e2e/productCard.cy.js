@@ -100,13 +100,13 @@ describe("The Product Card", () => {
     imageLink.click();
 
     // Then
-    var didLoad = false;
+    var isLoaded = false;
     cy.url().then((url) => {
       // Note. due to redirects lots of URLs will load so we check each one
       if (url.toString().includes("nike.com")) {
-        didLoad = true;
+        isLoaded = true;
       } else {
-        didLoad = false;
+        isLoaded = false;
       }
     });
     expect(isLoaded, true);
