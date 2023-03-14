@@ -116,6 +116,6 @@ describe("The Product Card", () => {
           isLoaded = false;
         }
       })
-      .expect(isLoaded, true);
+      expect(isLoaded, true);
   });
 });
