@@ -93,7 +93,7 @@ describe("The App", () => {
     });
   });
 
-  // Navigation test 
+  // Navigation test
   it("should navigate to product card after login success", () => {
     // Given
     cy.visit("http://localhost:3000");
@@ -113,7 +113,7 @@ describe("The App", () => {
     submitButton.should("be.visible");
     submitButton.click();
 
-    // Then    
+    // Then
     var productCard = cy.get(".productCard");
     productCard.should("be.visible");
   });
