@@ -1,12 +1,6 @@
 import logo from './logo.svg';
-
-
 import './ProductCard.css';
 import React from 'react';
-// import { withRouter } from 'react-router-dom';
-// import { useNavigate } from "react-router-dom";
-
-// let navigate = useNavigate();
 
 class ProductCard extends React.Component {
   
@@ -42,4 +36,3 @@ class ProductCard extends React.Component {
 }
 
 export default ProductCard;
-// export default withRouter(ProductCard);
