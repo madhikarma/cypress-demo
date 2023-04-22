@@ -1,9 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
 import React from 'react';
+import { useNavigate } from "react-router-dom";
+
+export const  withNavigation = (Component) => {
+  return props => <Component {...props} navigate={useNavigate()} />;
+} 
 
 class App extends React.Component {
-  
   // Initialiser Function
   constructor(props) {
     super(props);
@@ -48,7 +52,10 @@ class App extends React.Component {
     } else if (isPasswordEmpty) {
       alert("Error: Password is empty")
     } else {
-      alert("Login sent!\nUsername: " + this.state.username + "\nPassword: " + this.state.password)
+      // alert("Login sent!\nUsername: " + this.state.username + "\nPassword: " + this.state.password)
+
+      this.props.navigate("/products")
+      // this.props.history.push("/products/")
     }
   }
 
@@ -104,4 +111,5 @@ class App extends React.Component {
   }
 }
 
-export default App;
+// export default App;
+export default withNavigation(App);

@@ -5,6 +5,11 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import ProductCard from "./ProductCard";
 import image from "./images/shoes/nike-air-jordan.jpg";
+import { BrowserRouter, Routes, Route, Switch } from "react-router-dom";
+
+function createAppComponent() {
+  return <App value="" />;
+}
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -13,14 +18,36 @@ root.render(
     {/* <App value=''/> */}
 
     {/* Note. UNCOMMENT BELOW TO RENDER / LOAD THE PRODUCT CARD UI */}
-    <ProductCard
+    {/* <ProductCard
       productURL="https://www.nike.com"
       image={image}
       name="Nike Air Jordans"
       description="Some description about these Nike Jordan sneakers."
       price="£39.99"
       salePrice="£35.99"
-    />
+    /> */}
+    <BrowserRouter>
+      <Routes>
+        <Route
+          index
+          element={<App value="" />}
+        />
+        <Route
+          path="/products/"
+          element={
+            <ProductCard
+              productURL="https://www.nike.com"
+              image={image}
+              name="Nike Air Jordans"
+              description="Some description about these Nike Jordan sneakers."
+              price="£39.99"
+              salePrice="£35.99"
+            />
+          }
+        />
+        {/* <Route path="*" element={<NoPage />} /> */}
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
