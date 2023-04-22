@@ -3,7 +3,9 @@ import './App.css';
 import React from 'react';
 import { useNavigate } from "react-router-dom";
 
+// TODO: (SM) mnove to index.js or its own file as a reusable function?
 function withNavigation(Component) {
+  // Function to modify a React component passing the navigate function into the component's properties
   return props => <Component {...props} navigate={useNavigate()} />;
 } 
 
@@ -52,7 +54,6 @@ class App extends React.Component {
     } else if (isPasswordEmpty) {
       alert("Error: Password is empty")
     } else {
-      alert("Login sent!\nUsername: " + this.state.username + "\nPassword: " + this.state.password)
       this.props.navigate("/products")
     }
   }
