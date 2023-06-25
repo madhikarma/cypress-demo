@@ -93,6 +93,31 @@ describe("The App", () => {
     });
   });
 
+  // Navigation test
+  it("should navigate to product card after login success", () => {
+    // Given
+    cy.visit("http://localhost:3000");
+    var username = "david.bowie@mail.com";
+    var password = "password";
+
+    // When
+    var usernameElement = getUsernameLabel();
+    usernameElement.should("be.visible");
+    usernameElement.type(username);
+
+    var passwordElement = getPasswordLabel();
+    verifyLabel(passwordElement, "Password:");
+    passwordElement.type(password);
+
+    var submitButton = getSubmitButton();
+    submitButton.should("be.visible");
+    submitButton.click();
+
+    // Then
+    var productCard = cy.get(".productCard");
+    productCard.should("be.visible");
+  });
+
   function getUsernameLabel() {
     return cy.contains("Username:");
   }

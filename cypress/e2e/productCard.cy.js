@@ -105,17 +105,16 @@ describe("The Product Card", () => {
 
     // Then
     var isLoaded = false;
-    cy.url()
-      .then((url) => {
-        // TODO: remove log
-        console.log("Debug: URL is: " + url.toString());
-        // Note. due to redirects (i thikn) lots of URLs will load so we check each one
-        if (url.toString().includes("nike.com")) {
-          isLoaded = true;
-        } else {
-          isLoaded = false;
-        }
-      })
-      expect(isLoaded, true);
+    cy.url().then((url) => {
+      // TODO: remove log
+      console.log("Debug: URL is: " + url.toString());
+      // Note. due to redirects (i thikn) lots of URLs will load so we check each one
+      if (url.toString().includes("nike.com")) {
+        isLoaded = true;
+      } else {
+        isLoaded = false;
+      }
+    });
+    expect(isLoaded, true);
   });
 });

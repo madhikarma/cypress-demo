@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^13.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.10.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
@@ -17,6 +18,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "e2e-test": "npx cypress open",
+    "e2e": "npx cypress run --spec cypress/e2e/app.cy.js",
     "format": "npx prettier --write cypress/e2e/* && npx prettier --write cypress/pages/* && npx prettier --write src/index.js"
   },
   "eslintConfig": {

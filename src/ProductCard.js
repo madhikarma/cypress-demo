@@ -1,6 +1,4 @@
 import logo from './logo.svg';
-
-
 import './ProductCard.css';
 import React from 'react';
 
