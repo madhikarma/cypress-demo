@@ -2,6 +2,11 @@
 
 Basic React web app (generated using [Create React App](https://create-react-app.dev/) template) with the [Cypress e2e testing framework](https://www.cypress.io/) installed
 
+## Environment
+
+- nodeJS v18.16.1
+- npm v9.5.1
+
 ## Prerequisites
 - Install [nodeJS](https://nodejs.org/dist/v18.13.0/node-v18.13.0.pkg)
 
